@@ -32,6 +32,12 @@ export default class NavigationContainer extends Component {
                         <NavLink to="/blog" activeClassName="nav-link-active">
                         Blog
                         </NavLink>
+                    </div>   
+
+                    <div className="nav-link-wrapper">
+                        <NavLink to="/auth" activeClassName="nav-link-active">
+                        <div className='auth-btn' >Login</div>
+                        </NavLink>
                     </div>
                 </div>
 
