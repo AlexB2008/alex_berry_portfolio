@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
-import axios from "axios"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import axios from "axios";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FortAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 import PortfolioContainer from './portfolio/portfolio-container';
 import NavigationContainer from './navigation/navigation-container';
@@ -12,6 +15,8 @@ import PortfolioManager from './pages/portfolio-manager';
 import PortfolioDetail from './portfolio/portfolio-detail.js';
 import Auth from './pages/auth';
 import NoMatch from './pages/no-match';
+
+library.add(faTrash, faSignOutAlt);
 
 export default class App extends Component {
   constructor(props) {
@@ -51,10 +56,6 @@ export default class App extends Component {
       const loggedIn = response.data.logged_in;
       const loggedInStatus = this.state.loggedInStatus;
 
-      // If loggedIn and status LOGGED_IN => return data
-      // If loggedIn status NOT_LOGGED_IN => update state
-      // If not loggedIn and status LOGGED_IN => update state
-
       if (loggedIn && loggedInStatus === "LOGGED_IN") {
         return loggedIn;
       } else if (loggedIn && loggedInStatus === "NOT_LOGGED_IN") {
@@ -79,13 +80,13 @@ export default class App extends Component {
 
   authorizedPages() {
     return [
-      <Route path="/portfolio-manager" component={PortfolioManager} />
+      <Route key="portfolio-manager" path="/portfolio-manager" component={PortfolioManager} />
     ]
   };
 
   authorizedPage() {
     return [ 
-    <Route path="/auth" render={props => (
+    <Route key="auth" path="/auth" render={props => (
         <Auth
         {...props}
         handleSuccessfulLogin={this.handleSuccessfulLogin}
