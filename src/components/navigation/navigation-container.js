@@ -73,7 +73,7 @@ const dynamicLink2 = (route, linkText) => {
                     ALEX BERRY
 
                     {props.loggedInStatus === 'LOGGED_IN' ? <a onClick={handleSignOut}>
-                        <FontAwesomeIcon icon="SignOutAlt" />
+                        <FontAwesomeIcon icon="sign-out-alt" />
                     </a> : null}
                 </div>
             </div>
