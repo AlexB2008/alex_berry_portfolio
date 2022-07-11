@@ -3,7 +3,7 @@ import axios from 'axios';
 import DropzoneComponent from "react-dropzone-component";
 
 import "../../../node_modules/react-dropzone-component/styles/filepicker.css";
-// import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
+import "../../../node_modules/dropzone/dist/min/dropzone.min.css";
 
 export default class PortfolioForm extends Component {
     constructor(props) {
@@ -272,7 +272,7 @@ export default class PortfolioForm extends Component {
                                 <img src={this.state.banner_image_url} />
 
                                 <div className='image-removal-link'>
-                                    <a onClick={() => this.deleteImage("banner_image_url")}>
+                                    <a onClick={() => this.deleteImage("banner_image")}>
                                         Remove file
                                     </a>
                                 </div>
@@ -295,7 +295,7 @@ export default class PortfolioForm extends Component {
                                 <img src={this.state.logo_url} />
 
                                 <div className='image-removal-link'>
-                                    <a onClick={() => this.deleteImage("logo_url")}>
+                                    <a onClick={() => this.deleteImage("logo")}>
                                         Remove file
                                     </a>
                                 </div>
