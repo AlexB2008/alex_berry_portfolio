@@ -8,7 +8,7 @@ export default class BlogForm extends Component {
         this.state = {
             title: "",
             blog_status: ""
-        }
+        };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,8 +17,8 @@ export default class BlogForm extends Component {
     buildForm() {
         let formData = new FormData();
 
-        formData.append("portfolio_blog[title]", this.state.title)
-        formData.append("portfolio_blog[blog_status]", this.state.blog_status)
+        formData.append("portfolio_blog[title]", this.state.title);
+        formData.append("portfolio_blog[blog_status]", this.state.blog_status);
 
         return formData;
     }
@@ -27,8 +27,14 @@ export default class BlogForm extends Component {
         axios.post("https://alexberry.devcamp.space/portfolio/portfolio_blogs", 
         this.buildForm(), 
         { withCredentials: true }
-        ).then(response => {
-            console.log("handleSubmit for blog error",response);
+        )
+        .then(response => {
+            this.props.handleSuccessfullFormSubmission(response.data);
+
+            this.setState({
+                title:"",
+                blog_status:""
+            });
         })
         event.preventDefault();
 
@@ -45,23 +51,24 @@ export default class BlogForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="blog-form-wrapper">
+                <div className="two-column">
+                    <input 
+                        type="text"
+                        onChange={this.handleChange}
+                        name="title"
+                        placeholder="Blog Title"
+                        value={this.state.title}
+                    />
 
-            <input 
-            type="text"
-            onChange={this.handleChange}
-            name="title"
-            placeholder='Blog Title'
-            value={this.state.title}
-            />
-
-            <input 
-            type="text"
-            onChange={this.handleChange}
-            name="blog_status"
-            placeholder='Blog status'
-            value={this.state.blog_status}
-            />
+                    <input 
+                        type="text"
+                        onChange={this.handleChange}
+                        name="blog_status"
+                        placeholder="Blog status"
+                        value={this.state.blog_status}
+                    />
+                </div>
 
             <button>Save</button>
             </form>
