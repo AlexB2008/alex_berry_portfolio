@@ -16,7 +16,7 @@ export default function() {
         I have shown interest in computers for a couple years. 
         I finished my Freshman year of High School and I am moving into my Softmore year where I will take more classes to learn about coding and computer components. 
         I am very excited to see how I can improve over time and what projects I will make throughout my life. 
-        If you wish to see my HTML/CSS website made in my first year of the Code to Success Program, visit <a href="insert.neocities.org">insert.neocities.org</a>
+        If you wish to see my HTML/CSS website made in my first year of the Code to Success Program, visit <a className="website-link" href="alexfantasticfries.neocities.org" target="_blank">alexfantasticfries.neocities.org</a>.
       </div>
     </div>
   );

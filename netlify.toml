@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/*"
+  to = "/src/components/pages/no-match.js"
+  status = 404
