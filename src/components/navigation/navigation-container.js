@@ -25,6 +25,16 @@ const dynamicLink2 = (route, linkText) => {
     )
 }
 
+const dynamicLink3 = (route, linkText) => {
+    return (
+    <div className="nav-link-wrapper">
+        <NavLink to="/blog" activeClassName="nav-link-active">
+            <div className='auth-btn' >Blog</div>
+        </NavLink>
+    </div>
+    )
+}
+
     const handleSignOut = () => {
         axios.delete("https://api.devcamp.space/logout", { withCredentials: true }).then(response => {
             if (response.status === 200) {
@@ -66,6 +76,7 @@ const dynamicLink2 = (route, linkText) => {
 
                     {props.loggedInStatus === "LOGGED_IN" ? dynamicLink("/portfolio-manager", "Portfolio Manager") : null}
                     {props.loggedInStatus === "NOT_LOGGED_IN" ? dynamicLink2("/auth", "Login") : null}
+                    {props.loggedInStatus === "LOGGED_IN" ? dynamicLink3("/blog", "Blog") : null}
 
                 </div>
 
