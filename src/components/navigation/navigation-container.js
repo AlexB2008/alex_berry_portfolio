@@ -58,11 +58,11 @@ const dynamicLink2 = (route, linkText) => {
                         </NavLink>
                     </div>
             
-                    <div className="nav-link-wrapper">
+                    {/*<div className="nav-link-wrapper">
                         <NavLink to="/blog" activeClassName="nav-link-active">
                         Blog
                         </NavLink>
-                    </div>
+                    </div>*/}
 
                     {props.loggedInStatus === "LOGGED_IN" ? dynamicLink("/portfolio-manager", "Portfolio Manager") : null}
                     {props.loggedInStatus === "NOT_LOGGED_IN" ? dynamicLink2("/auth", "Login") : null}
