@@ -96,6 +96,7 @@ export default class BlogForm extends Component {
     formData.append("portfolio_blog[title]", this.state.title);
     formData.append("portfolio_blog[blog_status]", this.state.blog_status);
     formData.append("portfolio_blog[content]", this.state.content);
+    formData.append("portfolio_blog[category]", this.state.category);
 
     if (this.state.featured_image) {
       formData.append(
@@ -127,7 +128,6 @@ export default class BlogForm extends Component {
         });
 
         if (this.props.editMode) {
-          // Update blog detail
           this.props.handleUpdateFormSubmission(response.data.portfolio_blog);
         } else {
           this.props.handleSuccessfullFormSubmission(
@@ -160,13 +160,15 @@ export default class BlogForm extends Component {
             value={this.state.title}
           />
 
-          <input
-            type="text"
+          <select
+            name="category"
+            value={this.state.category}
             onChange={this.handleChange}
-            name="blog_status"
-            placeholder="Blog status"
-            value={this.state.blog_status}
-          />
+            className="select-element"
+          >
+          <option value="Published">Published</option>
+          <option value="Draft">Draft</option>
+          </select>
         </div>
 
         <div className="one-column">
